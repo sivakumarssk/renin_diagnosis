@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 15,
     marginBottom: 55,
+    marginTop:25
   },
 
   endCallButton: {

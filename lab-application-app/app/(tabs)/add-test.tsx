@@ -29,89 +29,71 @@ export default function AddTest() {
         contentContainerStyle={styles.scrollContent}
       >
         {/* Header */}
-        <View style={styles.header}>
-         <TouchableOpacity onPress={() => router.replace('/(tabs)/tests')}>
-            <Ionicons name="arrow-back" size={16} color="#222" />
-          </TouchableOpacity>
+       <View style={styles.header}>
+  <TouchableOpacity onPress={() => router.replace('/(tabs)/tests')}>
+    <Ionicons name="arrow-back" size={20} color="#222" />
+  </TouchableOpacity>
 
-          <Text style={styles.headerTitle}>
-            {isEditing ? 'Edit Test' : 'Add New Test'}
-          </Text>
-
-          <View style={{ width: 16 }} />
-        </View>
+  <Text style={styles.headerTitle}>
+    {isEditing ? 'Edit Test' : 'Add New Test'}
+  </Text>
+</View>
 
         {/* Test Name */}
-        <Field label="Test Name">
-          <TextInput
-            style={styles.input}
-            placeholder="Enter Test Name"
-            placeholderTextColor="#9AA5A5"
-            value={testName}
-            onChangeText={setTestName}
-          />
-        </Field>
+<Field label="Test Name">
+  <TextInput
+    style={styles.input}
+    value="CBC ( Complete Blood Count )"
+    editable={false}
+  />
+</Field>
 
-        {/* Category */}
-        <Field label="Category">
-          {/* <Dropdown value={category} placeholder="Select Category" /> */}
-          <TextInput
-            style={styles.input}
-            placeholder="Select Category"
-            placeholderTextColor="#9AA5A5"
-            value={category}
-            onChangeText={setCategory}
-          />
-        </Field>
+{/* Category */}
+<Field label="Category">
+  <TextInput
+    style={styles.input}
+    value="Blood Test"
+    editable={false}
+  />
+</Field>
 
-        {/* Sample Type */}
-        <Field label="Sample Type">
-          {/* <Dropdown value={sampleType} placeholder="Select Sample Type" /> */}
-          <TextInput
-            style={styles.input}
-            placeholder="Select Sample Type"
-            placeholderTextColor="#9AA5A5"
-            value={sampleType}
-            onChangeText={setSampleType}
-          />
-        </Field>
+{/* Sample Type */}
+<Field label="Sample Type">
+  <TextInput
+    style={styles.input}
+    value="Blood"
+    editable={false}
+  />
+</Field>
 
-        {/* Price */}
-        <Field label="Price (₹)">
-          <TextInput
-            style={styles.input}
-            placeholder="Enter Price"
-            placeholderTextColor="#9AA5A5"
-            keyboardType="numeric"
-            value={price}
-            onChangeText={setPrice}
-          />
-        </Field>
+{/* Price */}
+<Field label="Price (₹)">
+  <TextInput
+    style={styles.input}
+    value="199"
+    editable={false}
+  />
+</Field>
 
-        {/* Report Time */}
-        <Field label="Report Time">
-          {/* <Dropdown value={reportTime} placeholder="Select Report Time" /> */}
-          <TextInput
-            style={styles.input}
-            placeholder="Select Report Time"
-            placeholderTextColor="#9AA5A5"
-            value={reportTime}
-            onChangeText={setReportTime}
-          />
-        </Field>
+{/* Report Time */}
+<Field label="Report Time">
+  <TextInput
+    style={styles.input}
+    value="24 Hours"
+    editable={false}
+  />
+</Field>
 
-        {/* Description */}
-        <Field label="Description">
-          <TextInput
-            style={[styles.input, styles.textArea]}
-            placeholder="Enter description"
-            placeholderTextColor="#9AA5A5"
-            multiline
-            numberOfLines={4}
-            value={description}
-            onChangeText={setDescription}
-          />
-        </Field>
+{/* Description */}
+<Field label="Description">
+  <TextInput
+    style={[styles.input, styles.textArea]}
+    value="CBC test gives information about your overall health."
+    editable={false}
+    multiline
+  />
+</Field>
+       
 
         {/* Submit */}
         <TouchableOpacity
@@ -169,18 +151,19 @@ const styles = StyleSheet.create({
      paddingTop: 8,
       paddingBottom: 40 
     },
-  header: { 
-    height: 25,
-     flexDirection: 'row',
-      alignItems: 'center',
-       justifyContent: 'space-between',
-        marginBottom: 30
-       },
-  headerTitle: { 
-    fontSize: 17,
-     fontFamily: 'InterSemiBold',
-      color: '#222' 
-    },
+  header: {
+  height: 25,
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginBottom: 30,
+},
+
+headerTitle: {
+  fontSize: 17,
+  fontFamily: 'InterSemiBold',
+  color: '#222',
+  marginLeft: 8,
+},
   field: {
      marginBottom: 15
      },

@@ -20,15 +20,22 @@
 
 //   return (
 //     <SafeAreaView style={styles.container}>
-//       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
+//       <ScrollView
+//         showsVerticalScrollIndicator={false}
+//         contentContainerStyle={styles.scrollContent}
+//       >
+//         {/* Header */}
 //         <View style={styles.header}>
 //           <TouchableOpacity onPress={() => router.back()}>
 //             <Ionicons name="arrow-back" size={16} color="#222" />
 //           </TouchableOpacity>
+
 //           <Text style={styles.headerTitle}>Add Department</Text>
+
 //           <View style={{ width: 16 }} />
 //         </View>
 
+//         {/* Department Name */}
 //         <Field label="Department Name">
 //           <TextInput
 //             style={styles.input}
@@ -39,10 +46,12 @@
 //           />
 //         </Field>
 
+//         {/* Specialization */}
 //         <Field label="Specialization">
 //           <Dropdown value={specialization} placeholder="Select Specialization" />
 //         </Field>
 
+//         {/* Description */}
 //         <Field label="Description">
 //           <TextInput
 //             style={[styles.input, styles.textArea]}
@@ -55,19 +64,28 @@
 //           />
 //         </Field>
 
+//         {/* Department Head */}
 //         <Field label="Department Head">
 //           <Dropdown value={departmentHead} placeholder="Select doctor" />
 //         </Field>
 
-//         <Field label="Status">
+//         {/* Status */}
+//         <Field label="Status" style={styles.statusField}>
 //           <Dropdown value={status} placeholder="Active" />
 //         </Field>
 
-//         <TouchableOpacity style={styles.addButton} onPress={() => router.back()}>
+//         {/* Actions */}
+//         <TouchableOpacity
+//           style={styles.addButton}
+//           onPress={() => router.back()}
+//         >
 //           <Text style={styles.addButtonText}>Add Department</Text>
 //         </TouchableOpacity>
 
-//         <TouchableOpacity style={styles.cancelButton} onPress={() => router.back()}>
+//         <TouchableOpacity
+//           style={styles.cancelButton}
+//           onPress={() => router.back()}
+//         >
 //           <Text style={styles.cancelButtonText}>Cancel</Text>
 //         </TouchableOpacity>
 //       </ScrollView>
@@ -75,16 +93,30 @@
 //   );
 // }
 
-// function Field({ label, children }: { label: string; children: React.ReactNode }) {
+// function Field({
+//   label,
+//   children,
+//   style,
+// }: {
+//   label: string;
+//   children: React.ReactNode;
+//   style?: object;
+// }) {
 //   return (
-//     <View style={styles.field}>
+//     <View style={[styles.field, style]}>
 //       <Text style={styles.fieldLabel}>{label}</Text>
 //       {children}
 //     </View>
 //   );
 // }
 
-// function Dropdown({ value, placeholder }: { value: string; placeholder: string }) {
+// function Dropdown({
+//   value,
+//   placeholder,
+// }: {
+//   value: string;
+//   placeholder: string;
+// }) {
 //   return (
 //     <TouchableOpacity style={styles.dropdown}>
 //       <Text style={[styles.dropdownText, !value && { color: '#9AA5A5' }]}>
@@ -97,96 +129,114 @@
 
 // const styles = StyleSheet.create({
 //   container: {
-//      flex: 1,
-//       backgroundColor: '#F3FAF9'
-//      },
-//   scrollContent: { 
+//     flex: 1,
+//     backgroundColor: '#F3FAF9',
+//   },
+
+//   scrollContent: {
 //     paddingHorizontal: 16,
-//      paddingTop: 8, 
-//      paddingBottom: 40 
-//     },
+//     paddingTop: 8,
+//     paddingBottom: 40,
+//   },
+
 //   header: {
-//      height: 25,
-//       flexDirection: 'row',
-//        alignItems: 'center',
-//         justifyContent: 'space-between',
-//          marginBottom: 35 
-//         },
+//     height: 25,
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//     justifyContent: 'space-between',
+//     marginBottom: 40,
+//   },
+
 //   headerTitle: {
-//      fontSize: 18,
-//       fontFamily: 'InterSemiBold',
-//        color: '#222' 
-//       },
-//   field: { marginBottom: 14 },
-//   fieldLabel: { 
-//     fontSize: 14, 
+//     fontSize: 16,
 //     fontFamily: 'InterSemiBold',
-//      color: '#264849', 
-//      marginBottom: 6 
-//     },
+//     color: '#222',
+//   },
+
+//   field: {
+//     marginBottom: 14,
+//   },
+
+//   statusField: {
+//     width: '50%',
+//   },
+
+//   fieldLabel: {
+//     fontSize: 14,
+//     fontFamily: 'InterSemiBold',
+//     color: '#264849',
+//     marginBottom: 6,
+//   },
+
 //   input: {
-//      height: 52,
-//       borderWidth: 1, 
-//       borderColor: '#83C5C0', 
-//       borderRadius: 10, 
-//       backgroundColor: '#FFFFFF',
-//        paddingHorizontal: 12, 
-//        fontSize: 13,
-//         fontFamily: 'InterMedium',
-//          color: '#222' 
-//         },
-//   textArea: { 
+//     height: 52,
+//     borderWidth: 1,
+//     borderColor: '#83C5C0',
+//     borderRadius: 10,
+//     backgroundColor: '#FFFFFF',
+//     paddingHorizontal: 12,
+//     fontSize: 14,
+//     fontFamily: 'InterMedium',
+//     color: '#222',
+//   },
+
+//   textArea: {
 //     height: 90,
-//      paddingTop: 12,
-//       textAlignVertical: 'top'
-//      },
+//     paddingTop: 12,
+//     textAlignVertical: 'top',
+//   },
+
 //   dropdown: {
-//      height: 46,
-//       borderWidth: 1,
-//        borderColor: '#83C5C0',
-//         borderRadius: 10, 
-//         backgroundColor: '#FFFFFF',
-//          paddingHorizontal: 12,
-//           flexDirection: 'row',
-//            alignItems: 'center', 
-//            justifyContent: 'space-between'
-//            },
-//   dropdownText: { 
-//     fontSize: 13,
-//      fontFamily: 'InterMedium',
-//       color: '#222' 
-//     },
+//     height: 46,
+//     borderWidth: 1,
+//     borderColor: '#83C5C0',
+//     borderRadius: 10,
+//     backgroundColor: '#FFFFFF',
+//     paddingHorizontal: 12,
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//     justifyContent: 'space-between',
+//   },
+
+//   dropdownText: {
+//     fontSize: 14,
+//     fontFamily: 'InterMedium',
+//     color: '#222',
+//   },
+
 //   addButton: {
-//      height: 48,
-//       borderRadius: 12,
-//        backgroundColor: '#2F6364',
-//         alignItems: 'center',
-//          justifyContent: 'center',
-//           marginTop: 30,
-//            marginBottom: 12
-//            },
-//   addButtonText: {
-//      fontSize: 14,
-//       fontFamily: 'InterSemiBold',
-//        color: '#FFFFFF' 
-//       },
-//   cancelButton: { 
 //     height: 48,
-//      borderRadius: 12,
-//       borderWidth: 1,
-//        borderColor: '#D6E4E3',
-//         backgroundColor: '#FFFFFF',
-//          alignItems: 'center', 
-//          justifyContent: 'center'
-//          },
-//   cancelButtonText: { 
-//     fontSize: 14, 
-//     fontFamily: 'InterSemiBold', 
-//     color: '#264849' 
+//     borderRadius: 12,
+//     backgroundColor: '#2F6364',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     marginTop: 30,
+//     marginBottom: 12,
+//   },
+
+//   addButtonText: {
+//     fontSize: 16,
+//     fontFamily: 'InterSemiBold',
+//     color: '#FFFFFF',
+//   },
+
+//   cancelButton: {
+//     height: 48,
+//     borderRadius: 12,
+//     borderWidth: 1,
+//     borderColor: '#2F6364',
+//     backgroundColor: '#FFFFFF',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+
+//   cancelButtonText: {
+//     fontSize: 16,
+//     fontFamily: 'InterSemiBold',
+//     color: '#2F6364',
 //   },
 // });
-
-import React, { useState } from 'react';
+import React from 'react';
 import {
   ScrollView,
   StyleSheet,
@@ -200,12 +250,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 
 export default function AddDepartment() {
-  const [name, setName] = useState('');
-  const [specialization, setSpecialization] = useState('');
-  const [description, setDescription] = useState('');
-  const [departmentHead, setDepartmentHead] = useState('');
-  const [status, setStatus] = useState('Active');
-
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -214,52 +258,64 @@ export default function AddDepartment() {
       >
         {/* Header */}
         <View style={styles.header}>
-          <TouchableOpacity onPress={() => router.back()}>
-            <Ionicons name="arrow-back" size={16} color="#222" />
-          </TouchableOpacity>
+          <View style={styles.leftHeader}>
+            <TouchableOpacity
+              style={styles.backButton}
+              onPress={() => router.back()}
+            >
+              <Ionicons name="arrow-back" size={20} color="#222" />
+            </TouchableOpacity>
 
-          <Text style={styles.headerTitle}>Add Department</Text>
+            <Text style={styles.headerTitle}>
+              Add Department
+            </Text>
+          </View>
 
-          <View style={{ width: 16 }} />
+          <View style={styles.headerRight} />
         </View>
 
         {/* Department Name */}
         <Field label="Department Name">
           <TextInput
             style={styles.input}
-            placeholder="Department Name"
-            placeholderTextColor="#9AA5A5"
-            value={name}
-            onChangeText={setName}
+            value="Cardiology"
+            editable={false}
           />
         </Field>
 
         {/* Specialization */}
         <Field label="Specialization">
-          <Dropdown value={specialization} placeholder="Select Specialization" />
+          <Dropdown
+            value="Cardiology"
+            placeholder="Select Specialization"
+          />
         </Field>
 
         {/* Description */}
         <Field label="Description">
           <TextInput
             style={[styles.input, styles.textArea]}
-            placeholder="Enter department description"
-            placeholderTextColor="#9AA5A5"
+            value="Department for diagnosis and treatment of heart-related conditions."
+            editable={false}
             multiline
             numberOfLines={4}
-            value={description}
-            onChangeText={setDescription}
           />
         </Field>
 
         {/* Department Head */}
         <Field label="Department Head">
-          <Dropdown value={departmentHead} placeholder="Select doctor" />
+          <Dropdown
+            value="Dr. Rahul Kumar"
+            placeholder="Select doctor"
+          />
         </Field>
 
         {/* Status */}
         <Field label="Status" style={styles.statusField}>
-          <Dropdown value={status} placeholder="Active" />
+          <Dropdown
+            value="Active"
+            placeholder="Active"
+          />
         </Field>
 
         {/* Actions */}
@@ -267,14 +323,18 @@ export default function AddDepartment() {
           style={styles.addButton}
           onPress={() => router.back()}
         >
-          <Text style={styles.addButtonText}>Add Department</Text>
+          <Text style={styles.addButtonText}>
+            Add Department
+          </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.cancelButton}
           onPress={() => router.back()}
         >
-          <Text style={styles.cancelButtonText}>Cancel</Text>
+          <Text style={styles.cancelButtonText}>
+            Cancel
+          </Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
@@ -306,11 +366,24 @@ function Dropdown({
   placeholder: string;
 }) {
   return (
-    <TouchableOpacity style={styles.dropdown}>
-      <Text style={[styles.dropdownText, !value && { color: '#9AA5A5' }]}>
+    <TouchableOpacity
+      style={styles.dropdown}
+      activeOpacity={1}
+    >
+      <Text
+        style={[
+          styles.dropdownText,
+          !value && { color: '#9AA5A5' },
+        ]}
+      >
         {value || placeholder}
       </Text>
-      <Ionicons name="chevron-down" size={14} color="#333" />
+
+      <Ionicons
+        name="chevron-down"
+        size={14}
+        color="#333"
+      />
     </TouchableOpacity>
   );
 }
@@ -327,6 +400,8 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
 
+  /* Header */
+
   header: {
     height: 25,
     flexDirection: 'row',
@@ -335,11 +410,30 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
 
+  leftHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  backButton: {
+    width: 22,
+    height: 22,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
   headerTitle: {
     fontSize: 16,
     fontFamily: 'InterSemiBold',
     color: '#222',
+    marginLeft: 4,
   },
+
+  headerRight: {
+    width: 22,
+  },
+
+  /* Fields */
 
   field: {
     marginBottom: 14,
@@ -365,7 +459,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     fontSize: 14,
     fontFamily: 'InterMedium',
-    color: '#222',
+    color: '#908787',
   },
 
   textArea: {
@@ -373,6 +467,8 @@ const styles = StyleSheet.create({
     paddingTop: 12,
     textAlignVertical: 'top',
   },
+
+  /* Dropdown */
 
   dropdown: {
     height: 46,
@@ -389,8 +485,10 @@ const styles = StyleSheet.create({
   dropdownText: {
     fontSize: 14,
     fontFamily: 'InterMedium',
-    color: '#222',
+    color: '#9c8f8f',
   },
+
+  /* Buttons */
 
   addButton: {
     height: 48,

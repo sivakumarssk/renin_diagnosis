@@ -28,7 +28,7 @@ export default function DepartmentDoctors() {
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()}>
-            <Ionicons name="arrow-back" size={16} color="#222" />
+            <Ionicons name="arrow-back" size={20} color="#222" />
           </TouchableOpacity>
           {/* {params.name ? <Text style={styles.headerTitle}>{params.name}</Text> : null} */}
           <View style={{ width: 16 }} />

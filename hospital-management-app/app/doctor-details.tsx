@@ -41,29 +41,31 @@ export default function DoctorDetails() {
       >
         {/* Header */}
         <View style={styles.header}>
-          <TouchableOpacity
-            onPress={() => router.back()}
-            style={styles.backButton}
-          >
-            <Ionicons
-              name="arrow-back"
-              size={13}
-              color="#222"
-            />
-          </TouchableOpacity>
+  <View style={styles.leftHeader}>
+    <TouchableOpacity
+      onPress={() => router.back()}
+      style={styles.backButton}
+    >
+      <Ionicons
+        name="arrow-back"
+        size={20}
+        color="#222"
+      />
+    </TouchableOpacity>
 
-          <Text style={styles.headerTitle}>
-            View Patient Details
-          </Text>
+    <Text style={styles.headerTitle}>
+      View Patient Details
+    </Text>
+  </View>
 
-          <TouchableOpacity style={styles.moreButton}>
-            <Ionicons
-              name="ellipsis-vertical"
-              size={13}
-              color="#222"
-            />
-          </TouchableOpacity>
-        </View>
+  <TouchableOpacity style={styles.moreButton}>
+    <Ionicons
+      name="ellipsis-vertical"
+      size={13}
+      color="#222"
+    />
+  </TouchableOpacity>
+</View>
 
         {/* Doctor Information */}
         <View style={styles.doctorSection}>
@@ -168,30 +170,32 @@ const styles = StyleSheet.create({
 
   /* Header */
 
-  header: {
-    height: 25,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 20,
-  },
+ header: {
+  height: 25,
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  marginBottom: 20,
+},
 
-  backButton: {
-    width: 22,
-    height: 22,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+leftHeader: {
+  flexDirection: 'row',
+  alignItems: 'center',
+},
 
-  headerTitle: {
-    flex: 1,
-    fontSize: 15,
-    fontFamily: 'InterSemiBold',
-    color: '#222',
-    marginLeft: 45,
+backButton: {
+  width: 22,
+  height: 22,
+  alignItems: 'center',
+  justifyContent: 'center',
+},
 
-  },
-
+headerTitle: {
+  fontSize: 15,
+  fontFamily: 'InterSemiBold',
+  color: '#222',
+  marginLeft: 8,
+},
   moreButton: {
     width: 22,
     height: 22,

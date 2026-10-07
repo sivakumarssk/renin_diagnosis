@@ -13,22 +13,18 @@ export default function ReportScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        <View style={styles.header}>
-          <TouchableOpacity
-            onPress={() => router.back()}
-          >
-            <Ionicons
-              name="arrow-back"
-              size={17}
-            />
-          </TouchableOpacity>
+       <View style={styles.header}>
+  <TouchableOpacity onPress={() => router.back()}>
+    <Ionicons
+      name="arrow-back"
+      size={20}
+    />
+  </TouchableOpacity>
 
-          <Text style={styles.title}>
-            Sample Details
-          </Text>
-
-          <View style={{ width: 17 }} />
-        </View>
+  <Text style={styles.title}>
+    Sample Details
+  </Text>
+</View>
 
         <View style={styles.report}>
           <Ionicons
@@ -85,16 +81,16 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    height: 40,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
+  height: 40,
+  flexDirection: 'row',
+  alignItems: 'center',
+},
 
-  title: {
-    fontSize: 15,
-    fontFamily: 'InterMedium',
-  },
+title: {
+  fontSize: 15,
+  fontFamily: 'InterMedium',
+  marginLeft: 8,
+},
 
   report: {
     alignItems: 'center',

@@ -99,14 +99,12 @@ export default function TestDetails() {
 
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.replace('/(tabs)/tests')}>
-  <Ionicons name="arrow-back" size={20} color="#222" />
-</TouchableOpacity>
+  <TouchableOpacity onPress={() => router.replace('/(tabs)/tests')}>
+    <Ionicons name="arrow-back" size={20} color="#222" />
+  </TouchableOpacity>
 
-        <Text style={styles.headerTitle}>Tests</Text>
-
-        <View style={{ width: 20 }} />
-      </View>
+  <Text style={styles.headerTitle}>Tests</Text>
+</View>
 
       {/* Image + name */}
       <View style={styles.summaryWrap}>
@@ -188,19 +186,19 @@ const styles = StyleSheet.create({
     paddingTop: 8,
   },
 
-  header: {
-    height: 25,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 30,
-  },
+header: {
+  height: 25,
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginBottom: 30,
+},
 
-  headerTitle: {
-    fontSize: 17,
-    fontFamily: 'InterSemiBold',
-    color: '#222',
-  },
+headerTitle: {
+  fontSize: 17,
+  fontFamily: 'InterSemiBold',
+  color: '#222',
+  marginLeft: 8,
+},
 
   summaryWrap: {
     alignItems: 'center',

@@ -36,20 +36,22 @@ export default function AppointmentDetails() {
         contentContainerStyle={styles.scrollContent}
       >
         {/* Header */}
-        <View style={styles.header}>
-          <TouchableOpacity
-            style={styles.backButton}
-            onPress={() => router.back()}
-          >
-            <Ionicons name="arrow-back" size={18} color="#222" />
-          </TouchableOpacity>
+       <View style={styles.header}>
+  <View style={styles.leftHeader}>
+    <TouchableOpacity
+      style={styles.backButton}
+      onPress={() => router.back()}
+    >
+      <Ionicons name="arrow-back" size={20} color="#222" />
+    </TouchableOpacity>
 
-          <Text style={styles.headerTitle}>
-            Appointment Details
-          </Text>
+    <Text style={styles.headerTitle}>
+      Appointment Details
+    </Text>
+  </View>
 
-          <View style={styles.headerRight} />
-        </View>
+  <View style={styles.headerRight} />
+</View>
 
         {/* Patient Summary Card */}
         <TouchableOpacity
@@ -318,13 +320,7 @@ const styles = StyleSheet.create({
 
   /* Header */
 
-  header: {
-    height: 30,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 35,
-  },
+  
 
   backButton: {
     width: 30,
@@ -333,11 +329,25 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  headerTitle: {
-    fontSize: 17,
-    fontFamily: 'InterSemiBold',
-    color: '#222',
-  },
+ header: {
+  height: 30,
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  marginBottom: 35,
+},
+
+leftHeader: {
+  flexDirection: 'row',
+  alignItems: 'center',
+},
+
+headerTitle: {
+  fontSize: 17,
+  fontFamily: 'InterSemiBold',
+  color: '#222',
+  marginLeft: 4,
+},
 
   headerRight: {
     width: 30,

@@ -32,7 +32,7 @@ export default function DepartmentDetail() {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()}>
-          <Ionicons name="arrow-back" size={16} color="#222" />
+          <Ionicons name="arrow-back" size={20} color="#222" />
         </TouchableOpacity>
 
         <Ionicons name="ellipsis-vertical" size={16} color="#222" />

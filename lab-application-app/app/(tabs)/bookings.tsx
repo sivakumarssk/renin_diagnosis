@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+// import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -18,55 +19,43 @@ const filters = [
 ];
 
 export default function BookingsScreen() {
-  const [active, setActive] = useState('Confirmed');
+  // const [active, setActive] = useState('Confirmed');
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity
-          onPress={() => router.back()}
-        >
-          <Ionicons
-            name="arrow-back"
-            size={18}
-            color="#222"
-          />
-        </TouchableOpacity>
+  <TouchableOpacity onPress={() => router.back()}>
+    <Ionicons name="arrow-back" size={20} color="#222" />
+  </TouchableOpacity>
 
-        <Text style={styles.title}>
-          Bookings
-        </Text>
-
-        <View style={{ width: 18 }} />
-      </View>
+  <Text style={styles.headerTitle}>Bookings</Text>
+</View>
 
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.content}
       >
+        
         <View style={styles.filters}>
-          {filters.map((item) => (
-            <TouchableOpacity
-              key={item}
-              style={[
-                styles.filter,
-                active === item &&
-                  styles.activeFilter,
-              ]}
-              onPress={() => setActive(item)}
-            >
-              <Text
-                style={[
-                  styles.filterText,
-                  active === item &&
-                    styles.activeText,
-                ]}
-              >
-                {item}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </View>
+  {filters.map((item) => (
+    <TouchableOpacity
+      key={item}
+      style={[
+        styles.filter,
+        item === 'Pending' && styles.activeFilter,
+      ]}
+    >
+      <Text
+        style={[
+          styles.filterText,
+          item === 'Pending' && styles.activeText,
+        ]}
+      >
+        {item}
+      </Text>
+    </TouchableOpacity>
+  ))}
+</View>
 
        {[1, 2, 3, 4].map((item) => (
   <TouchableOpacity
@@ -129,13 +118,17 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    height: 45,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 14,
-   marginBottom:15
-  },
+  flexDirection: 'row',
+  alignItems: 'center',
+  paddingHorizontal: 16,
+  paddingVertical: 12,
+},
+
+headerTitle: {
+  fontSize: 18,
+  fontFamily:'InterSemiBold',
+  marginLeft: 8,
+},
 
   title: {
     fontSize: 15,

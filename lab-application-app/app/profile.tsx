@@ -14,16 +14,13 @@ export default function ProfileScreen() {
   return (
     <SafeAreaView style={styles.container}>
       {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()}>
-          <Ionicons name="arrow-back" size={20} color="#222" />
-        </TouchableOpacity>
+     <View style={styles.header}>
+  <TouchableOpacity onPress={() => router.back()}>
+    <Ionicons name="arrow-back" size={20} color="#222" />
+  </TouchableOpacity>
 
-        <Text style={styles.headerTitle}>Profile</Text>
-
-        {/* Spacer to keep title centered */}
-        <View style={{ width: 20 }} />
-      </View>
+  <Text style={styles.headerTitle}>Profile</Text>
+</View>
 
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -108,20 +105,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#F2FAF9',
   },
 
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 14,
-    paddingVertical: 12,
-    marginBottom:30
-  },
+ header: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  paddingHorizontal: 14,
+  paddingVertical: 12,
+  marginBottom: 30,
+},
 
-  headerTitle: {
-    fontSize: 18,
-    fontFamily: 'InterSemiBold',
-    color: '#222',
-  },
+headerTitle: {
+  fontSize: 18,
+  fontFamily: 'InterSemiBold',
+  color: '#222',
+  marginLeft: 8,
+},
 
   content: {
     padding: 14,

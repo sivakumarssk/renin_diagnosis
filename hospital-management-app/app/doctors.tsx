@@ -55,28 +55,30 @@ export default function Doctors() {
         contentContainerStyle={styles.scrollContent}
       >
         {/* Header */}
-        <View style={styles.header}>
-          <TouchableOpacity
-            onPress={() => router.back()}
-            style={styles.backButton}
-          >
-            <Ionicons
-              name="arrow-back"
-              size={13}
-              color="#222"
-            />
-          </TouchableOpacity>
+       <View style={styles.header}>
+  <View style={styles.leftHeader}>
+    <TouchableOpacity
+      onPress={() => router.back()}
+      style={styles.backButton}
+    >
+      <Ionicons
+        name="arrow-back"
+        size={20}
+        color="#222"
+      />
+    </TouchableOpacity>
 
-          <Text style={styles.headerTitle}>Doctors</Text>
+    <Text style={styles.headerTitle}>Doctors</Text>
+  </View>
 
-          <TouchableOpacity>
-            <Ionicons
-              name="ellipsis-vertical"
-              size={13}
-              color="#222"
-            />
-          </TouchableOpacity>
-        </View>
+  <TouchableOpacity>
+    <Ionicons
+      name="ellipsis-vertical"
+      size={13}
+      color="#222"
+    />
+  </TouchableOpacity>
+</View>
 
         {/* Search */}
         <View style={styles.searchContainer}>
@@ -223,26 +225,32 @@ const styles = StyleSheet.create({
     paddingBottom: 65,
   },
 
-  header: {
-    height: 27,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom:20
-  },
+ header: {
+  height: 27,
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  marginBottom: 20,
+},
 
-  backButton: {
-    width: 28,
-    height: 28,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+leftHeader: {
+  flexDirection: 'row',
+  alignItems: 'center',
+},
 
-  headerTitle: {
-    fontSize: 15,
-    fontFamily: 'InterSemiBold',
-    color: '#222',
-  },
+backButton: {
+  width: 28,
+  height: 28,
+  alignItems: 'center',
+  justifyContent: 'center',
+},
+
+headerTitle: {
+  fontSize: 15,
+  fontFamily: 'InterSemiBold',
+  color: '#222',
+  marginLeft: 8,
+},
 
   searchContainer: {
     height: 54,

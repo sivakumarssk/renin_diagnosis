@@ -16,15 +16,13 @@ export default function ReportsAnalyticsScreen() {
   return (
     <SafeAreaView style={styles.container}>
       {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()}>
-          <Ionicons name="arrow-back" size={20} color="#222" />
-        </TouchableOpacity>
+     <View style={styles.header}>
+  <TouchableOpacity onPress={() => router.back()}>
+    <Ionicons name="arrow-back" size={20} color="#222" />
+  </TouchableOpacity>
 
-        <Text style={styles.headerTitle}>Revenue & Analytics</Text>
-
-        <View style={{ width: 20 }} />
-      </View>
+  <Text style={styles.headerTitle}>Revenue & Analytics</Text>
+</View>
 
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -58,19 +56,19 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 14,
-    paddingVertical: 12,
-    marginBottom:20
-  },
+  flexDirection: 'row',
+  alignItems: 'center',
+  paddingHorizontal: 14,
+  paddingVertical: 12,
+  marginBottom: 20,
+},
 
-  headerTitle: {
-    fontSize: 15,
-    fontFamily: 'InterSemiBold',
-    color: '#222',
-  },
+headerTitle: {
+  fontSize: 15,
+  fontFamily: 'InterSemiBold',
+  color: '#222',
+  marginLeft: 8,
+},
 
   content: {
     padding: 14,

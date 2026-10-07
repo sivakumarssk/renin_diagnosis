@@ -101,15 +101,13 @@ export default function Tests() {
         contentContainerStyle={styles.scrollContent}
       >
         {/* Header */}
-        <View style={styles.header}>
-          <TouchableOpacity onPress={() => router.replace('/home')}>
-            <Ionicons name="arrow-back" size={16} color="#222" />
-          </TouchableOpacity>
+       <View style={styles.header}>
+  <TouchableOpacity onPress={() => router.replace('/home')}>
+    <Ionicons name="arrow-back" size={20} color="#222" />
+  </TouchableOpacity>
 
-          <Text style={styles.headerTitle}>Tests</Text>
-
-          <View style={{ width: 16 }} />
-        </View>
+  <Text style={styles.headerTitle}>Tests</Text>
+</View>
 
         {/* Test list */}
         {tests.map((test, index) => (
@@ -167,19 +165,19 @@ const styles = StyleSheet.create({
     paddingBottom: 30,
   },
 
-  header: {
-    height: 25,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 30,
-  },
+ header: {
+  height: 25,
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginBottom: 30,
+},
 
-  headerTitle: {
-    fontSize: 17,
-    fontFamily: 'InterSemiBold',
-    color: '#222',
-  },
+headerTitle: {
+  fontSize: 17,
+  fontFamily: 'InterSemiBold',
+  color: '#222',
+  marginLeft: 8,
+},
 
   testCard: {
     minHeight: 84,

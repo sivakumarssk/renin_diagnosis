@@ -32,15 +32,22 @@ export default function HospitalProfile() {
         contentContainerStyle={styles.scrollContent}
       >
         {/* Header */}
-        <View style={styles.header}>
-          <TouchableOpacity onPress={() => router.back()}>
-            <Ionicons name="arrow-back" size={16} color="#222" />
-          </TouchableOpacity>
+       <View style={styles.header}>
+  <View style={styles.leftHeader}>
+    <TouchableOpacity
+      style={styles.backButton}
+      onPress={() => router.back()}
+    >
+      <Ionicons name="arrow-back" size={20} color="#222" />
+    </TouchableOpacity>
 
-          <Text style={styles.headerTitle}>Hospital Profile</Text>
+    <Text style={styles.headerTitle}>
+      Hospital Profile
+    </Text>
+  </View>
 
-          <View style={{ width: 16 }} />
-        </View>
+  <View style={styles.headerRight} />
+</View>
 
         {/* Logo + tagline */}
         <View style={styles.logoWrap}>
@@ -132,18 +139,35 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    height: 25,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 40,
-  },
+  height: 25,
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  marginBottom: 40,
+},
 
-  headerTitle: {
-    fontSize: 18,
-    fontFamily: 'InterSemiBold',
-    color: '#222',
-  },
+leftHeader: {
+  flexDirection: 'row',
+  alignItems: 'center',
+},
+
+backButton: {
+  width: 22,
+  height: 22,
+  alignItems: 'center',
+  justifyContent: 'center',
+},
+
+headerTitle: {
+  fontSize: 18,
+  fontFamily: 'InterSemiBold',
+  color: '#222',
+  marginLeft: 4,
+},
+
+headerRight: {
+  width: 22,
+},
 
   logoWrap: {
     alignItems: 'center',

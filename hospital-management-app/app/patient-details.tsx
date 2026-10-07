@@ -34,14 +34,27 @@ export default function PatientDetails() {
       >
         {/* Header */}
         <View style={styles.header}>
-          <TouchableOpacity onPress={() => router.back()}>
-            <Ionicons name="arrow-back" size={16} color="#222" />
-          </TouchableOpacity>
+  <View style={styles.leftHeader}>
+    <TouchableOpacity
+      style={styles.backButton}
+      onPress={() => router.back()}
+    >
+      <Ionicons name="arrow-back" size={20} color="#222" />
+    </TouchableOpacity>
 
-          <Text style={styles.headerTitle}>View Patient Details</Text>
+    <Text style={styles.headerTitle}>
+      View Patient Details
+    </Text>
+  </View>
 
-          <Ionicons name="ellipsis-vertical" size={16} color="#222" />
-        </View>
+  <TouchableOpacity>
+    <Ionicons
+      name="ellipsis-vertical"
+      size={16}
+      color="#222"
+    />
+  </TouchableOpacity>
+</View>
 
         {/* Patient summary */}
         <View style={styles.patientCard}>
@@ -161,19 +174,32 @@ const styles = StyleSheet.create({
     paddingBottom: 24,
   },
 
-  header: {
-    height: 25,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 40,
-  },
+ header: {
+  height: 25,
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  marginBottom: 40,
+},
 
-  headerTitle: {
-    fontSize: 16,
-    fontFamily: 'InterSemiBold',
-    color: '#222',
-  },
+leftHeader: {
+  flexDirection: 'row',
+  alignItems: 'center',
+},
+
+backButton: {
+  width: 22,
+  height: 22,
+  alignItems: 'center',
+  justifyContent: 'center',
+},
+
+headerTitle: {
+  fontSize: 16,
+  fontFamily: 'InterSemiBold',
+  color: '#222',
+  marginLeft: 4,
+},
 
   patientCard: {
     flexDirection: 'row',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   ScrollView,
   StyleSheet,
@@ -12,15 +12,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 
 export default function AddDoctor() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('+91');
-  const [department, setDepartment] = useState('');
-  const [specialization, setSpecialization] = useState('');
-  const [experience, setExperience] = useState('');
-  const [qualification, setQualification] = useState('');
-  const [fee, setFee] = useState('');
-  const [status, setStatus] = useState('Available');
+ 
 
   return (
     <SafeAreaView style={styles.container}>
@@ -30,14 +22,12 @@ export default function AddDoctor() {
       >
         {/* Header */}
         <View style={styles.header}>
-          <TouchableOpacity onPress={() => router.back()}>
-            <Ionicons name="arrow-back" size={16} color="#222" />
-          </TouchableOpacity>
+  <TouchableOpacity onPress={() => router.back()}>
+    <Ionicons name="arrow-back" size={20} color="#222" />
+  </TouchableOpacity>
 
-          <Text style={styles.headerTitle}>Add Doctor</Text>
-
-          <View style={{ width: 16 }} />
-        </View>
+  <Text style={styles.headerTitle}>Add Doctor</Text>
+</View>
 
         {/* Avatar + intro */}
         <View style={styles.avatarWrap}>
@@ -48,91 +38,65 @@ export default function AddDoctor() {
           <Text style={styles.avatarSubtitle}>Enter Doctor Details</Text>
         </View>
 
-        {/* Doctor Name */}
-        <Field label="Doctor Name">
-          <TextInput
-            style={styles.input}
-            placeholder="Enter Doctor full name"
-            placeholderTextColor="#9AA5A5"
-            value={name}
-            onChangeText={setName}
-          />
-        </Field>
+     <Field label="Doctor Name">
+  <TextInput
+    style={styles.input}
+    value="Dr. Renuka Sharma"
+    editable={false}
+  />
+</Field>
 
-        {/* Email Address */}
-        <Field label="Email Address">
-          <TextInput
-            style={styles.input}
-            placeholder="Enter Email Adress"
-            placeholderTextColor="#9AA5A5"
-            keyboardType="email-address"
-            autoCapitalize="none"
-            value={email}
-            onChangeText={setEmail}
-          />
-        </Field>
+<Field label="Email Address">
+  <TextInput
+    style={styles.input}
+    value="renuka@gmail.com"
+    editable={false}
+  />
+</Field>
 
-        {/* Phone Number */}
-        <Field label="Phone Number">
-          <TextInput
-            style={styles.input}
-            placeholder="+91"
-            placeholderTextColor="#9AA5A5"
-            keyboardType="phone-pad"
-            value={phone}
-            onChangeText={setPhone}
-          />
-        </Field>
+<Field label="Phone Number">
+  <TextInput
+    style={styles.input}
+    value="+91 9874451230"
+    editable={false}
+  />
+</Field>
 
-        {/* Department */}
-        <Field label="Department">
-          <Dropdown value={department} placeholder="Select Department" />
-        </Field>
+<Field label="Department">
+  <Dropdown value="General Medicine" placeholder="Select Department" />
+</Field>
 
-        {/* Specialization */}
-        <Field label="Specialization">
-          <Dropdown value={specialization} placeholder="Select" />
-        </Field>
+<Field label="Specialization">
+  <Dropdown value="General Physician" placeholder="Select" />
+</Field>
 
-        {/* Experience */}
-        <Field label="Experience">
-          <TextInput
-            style={styles.input}
-            placeholder="Enter Experience in years"
-            placeholderTextColor="#9AA5A5"
-            keyboardType="numeric"
-            value={experience}
-            onChangeText={setExperience}
-          />
-        </Field>
+<Field label="Experience">
+  <TextInput
+    style={styles.input}
+    value="8 Years"
+    editable={false}
+  />
+</Field>
 
-        {/* Qualification */}
-        <Field label="Qualification">
-          <TextInput
-            style={styles.input}
-            placeholder="Enter Qualification"
-            placeholderTextColor="#9AA5A5"
-            value={qualification}
-            onChangeText={setQualification}
-          />
-        </Field>
+<Field label="Qualification">
+  <TextInput
+    style={styles.input}
+    value="MBBS, MD"
+    editable={false}
+  />
+</Field>
 
-        {/* Consultation Fee */}
-        <Field label="Consultation Fee (₹)">
-          <TextInput
-            style={styles.input}
-            placeholder="Enter Consultation Fee"
-            placeholderTextColor="#9AA5A5"
-            keyboardType="numeric"
-            value={fee}
-            onChangeText={setFee}
-          />
-        </Field>
+<Field label="Consultation Fee (₹)">
+  <TextInput
+    style={styles.input}
+    value="₹500"
+    editable={false}
+  />
+</Field>
 
-        {/* Status */}
-        <Field label="Status">
-          <Dropdown value={status} placeholder="Available" />
-        </Field>
+<Field label="Status">
+  <Dropdown value="Available" placeholder="Available" />
+</Field>
 
         {/* Actions */}
         <TouchableOpacity
@@ -202,19 +166,19 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
 
-  header: {
-    height: 25,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 18,
-  },
+ header: {
+  height: 25,
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginBottom: 18,
+},
 
-  headerTitle: {
-    fontSize: 16,
-    fontFamily: 'InterSemiBold',
-    color: '#222',
-  },
+headerTitle: {
+  fontSize: 16,
+  fontFamily: 'InterSemiBold',
+  color: '#222',
+  marginLeft: 8,
+},
 
   avatarWrap: {
     alignItems: 'center',

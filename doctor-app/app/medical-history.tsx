@@ -45,18 +45,24 @@ export default function MedicalHistoryScreen() {
       <StatusBar barStyle="dark-content" backgroundColor={COLORS.bg} />
 
       {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity
-          onPress={() => router.back()}
-          style={styles.backButton}
-        >
-          <Ionicons name="arrow-back" size={22} color={COLORS.textDark} />
-        </TouchableOpacity>
+     <View style={styles.header}>
+  <View style={styles.leftHeader}>
+    <TouchableOpacity
+      onPress={() => router.back()}
+      style={styles.backButton}
+    >
+      <Ionicons
+        name="arrow-back"
+        size={22}
+        color={COLORS.textDark}
+      />
+    </TouchableOpacity>
 
-        <Text style={styles.headerTitle}>Medical History</Text>
+    <Text style={styles.headerTitle}>Medical History</Text>
+  </View>
 
-        <View style={styles.backButton} />
-      </View>
+  <View style={styles.headerRight} />
+</View>
 
       {/* Medical History List */}
       <ScrollView
@@ -97,25 +103,35 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 8,
-    paddingVertical: 12,
-  },
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  paddingHorizontal: 8,
+  paddingVertical: 12,
+},
 
-  backButton: {
-    width: 36,
-    height: 36,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+leftHeader: {
+  flexDirection: 'row',
+  alignItems: 'center',
+},
 
-  headerTitle: {
-    fontFamily: 'InterSemiBold',
-    fontSize: 16,
-    color: COLORS.textDark,
-  },
+backButton: {
+  width: 22,
+  height: 22,
+  alignItems: 'center',
+  justifyContent: 'center',
+},
+
+headerTitle: {
+  fontFamily: 'InterSemiBold',
+  fontSize: 16,
+  color: COLORS.textDark,
+  marginLeft: 4,
+},
+
+headerRight: {
+  width: 22,
+},
 
   listContent: {
     paddingHorizontal: 20,

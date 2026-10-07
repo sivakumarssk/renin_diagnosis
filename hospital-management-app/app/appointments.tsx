@@ -119,7 +119,7 @@ const pendingData: PendingAppointment[] = [
 ];
 
 export default function AppointmentsScreen() {
-  const [activeTab, setActiveTab] = useState<Tab>('Upcoming');
+  
   const [pending, setPending] = useState(pendingData);
 
   const handleApprove = (id: string) => {
@@ -134,54 +134,62 @@ export default function AppointmentsScreen() {
     <SafeAreaView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()}>
-          <Ionicons name="arrow-back" size={16} color="#222" />
-        </TouchableOpacity>
+  <View style={styles.leftHeader}>
+    <TouchableOpacity onPress={() => router.back()}>
+      <Ionicons name="arrow-back" size={20} color="#222" />
+    </TouchableOpacity>
 
-        <Text style={styles.headerTitle}>Appointments</Text>
-
-        <View style={{ width: 16 }} />
-      </View>
+    <Text style={styles.headerTitle}>
+      Appointments
+    </Text>
+  </View>
+</View>
 
       {/* Tabs */}
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.tabsRow}
+     <ScrollView
+  horizontal
+  showsHorizontalScrollIndicator={false}
+  contentContainerStyle={styles.tabsRow}
+>
+  {TABS.map((tab) => {
+    const isActive = tab === 'Upcoming';
+
+    return (
+      <TouchableOpacity
+        key={tab}
+        style={[
+          styles.tabPill,
+          isActive && styles.tabPillActive,
+        ]}
       >
-        {TABS.map((tab) => {
-          const isActive = tab === activeTab;
-          return (
-            <TouchableOpacity
-              key={tab}
-              onPress={() => setActiveTab(tab)}
-              style={[styles.tabPill, isActive && styles.tabPillActive]}
-            >
-              <Text
-                style={[
-                  styles.tabPillText,
-                  isActive && styles.tabPillTextActive,
-                ]}
-              >
-                {tab}
-              </Text>
-            </TouchableOpacity>
-          );
-        })}
-      </ScrollView>
+        <Text
+          style={[
+            styles.tabPillText,
+            isActive && styles.tabPillTextActive,
+          ]}
+        >
+          {tab}
+        </Text>
+      </TouchableOpacity>
+    );
+  })}
+</ScrollView>
 
       {/* Content */}
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.listContent}
       >
-        {activeTab === 'Upcoming' &&
-          upcomingData.map((a) => (
-            <TouchableOpacity
-              key={a.id}
-              style={styles.upcomingCard}
-              activeOpacity={0.7}
-              onPress={() => router.push('/appointment-details')}
+       {upcomingData.map((a, index) => (
+  <TouchableOpacity
+    key={a.id}
+    style={styles.upcomingCard}
+    activeOpacity={0.7}
+    onPress={
+      index === 0
+        ? () => router.push('/appointment-details')
+        : undefined
+    }
             >
               <Image source={a.photo} style={styles.avatar} />
 
@@ -217,66 +225,11 @@ export default function AppointmentsScreen() {
             </TouchableOpacity>
           ))}
 
-        {activeTab === 'Pending' &&
-          pending.map((a) => (
-            <View key={a.id} style={styles.pendingCard}>
-              <TouchableOpacity
-                style={styles.cardTop}
-                activeOpacity={0.7}
-                onPress={() => router.push('/appointment-details')}
-              >
-                <Image source={a.photo} style={styles.avatar} />
+       
 
-                <View style={styles.cardInfo}>
-                  <Text style={styles.cardTitle}>{a.patient}</Text>
-                  <Text style={styles.cardSub}>{a.doctor}</Text>
-                  <Text style={styles.cardSub}>{a.department}</Text>
+        
 
-                  <View style={styles.metaRow}>
-                    <Ionicons name="time-outline" size={11} color="#9AA5A5" />
-                    <Text style={styles.cardMeta}>
-                      {a.date}  {a.time}
-                    </Text>
-                  </View>
-
-                  <Text
-                    style={[
-                      styles.typeText,
-                      a.type === 'In-Clinic'
-                        ? styles.typeClinic
-                        : styles.typeVideo,
-                    ]}
-                  >
-                    {a.type}
-                  </Text>
-                </View>
-              </TouchableOpacity>
-
-              <View style={styles.actionsRow}>
-                <TouchableOpacity
-                  style={styles.rejectButton}
-                  onPress={() => handleReject(a.id)}
-                >
-                  <Text style={styles.rejectButtonText}>Reject</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                  style={styles.approveButton}
-                  onPress={() => handleApprove(a.id)}
-                >
-                  <Text style={styles.approveButtonText}>Approve</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          ))}
-
-        {activeTab === 'Completed' && (
-          <Text style={styles.emptyText}>No completed appointments</Text>
-        )}
-
-        {activeTab === 'Cancelled' && (
-          <Text style={styles.emptyText}>No cancelled appointments</Text>
-        )}
+        
       </ScrollView>
 
       {/* Bottom Nav */}
@@ -320,21 +273,25 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    height: 25,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    marginTop: 8,
-    marginBottom: 26,
-  },
+  height: 25,
+  flexDirection: 'row',
+  alignItems: 'center',
+  paddingHorizontal: 16,
+  marginTop: 8,
+  marginBottom: 20,
+},
 
-  headerTitle: {
-    fontSize: 15,
-    fontFamily: 'InterSemiBold',
-    color: '#222',
-  },
+leftHeader: {
+  flexDirection: 'row',
+  alignItems: 'center',
+},
 
+headerTitle: {
+  fontSize: 15,
+  fontFamily: 'InterSemiBold',
+  color: '#222',
+  marginLeft: 8,
+},
   tabsRow: {
     paddingHorizontal: 16,
     gap: 8,

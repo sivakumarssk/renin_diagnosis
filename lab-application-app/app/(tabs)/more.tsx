@@ -9,14 +9,12 @@ export default function MoreScreen() {
     <SafeAreaView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()}>
-          <Ionicons name="arrow-back" size={20} color="#222" />
-        </TouchableOpacity>
+  <TouchableOpacity onPress={() => router.back()}>
+    <Ionicons name="arrow-back" size={20} color="#222" />
+  </TouchableOpacity>
 
-        <Text style={styles.headerTitle}>More</Text>
-
-        <View style={{ width: 20 }} />
-      </View>
+  <Text style={styles.headerTitle}>More</Text>
+</View>
 
       <View style={styles.content}>
       <View style={styles.card}>
@@ -94,20 +92,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#F2FAF9',
   },
 
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 14,
-    paddingVertical: 16,
-    marginBottom:30
-  },
+ header: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  paddingHorizontal: 14,
+  paddingVertical: 16,
+  marginBottom: 30,
+},
 
-  headerTitle: {
-    fontSize: 16,
-    fontFamily: 'InterSemiBold',
-    color: '#222',
-  },
+headerTitle: {
+  fontSize: 16,
+  fontFamily: 'InterSemiBold',
+  color: '#222',
+  marginLeft: 8,
+},
 
   content: {
     padding: 14,

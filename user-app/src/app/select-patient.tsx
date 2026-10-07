@@ -46,67 +46,6 @@ export default function SelectPatient() {
     PATIENTS[0]?.id ?? ''
   );
 
-//   const handleDone = () => {
-//     const patient =
-//       PATIENTS.find((p) => p.id === selectedId) ?? null;
-
-//     if (!patient) {
-//       return;
-//     }
-//     if (from === 'sampleCollection') {
-//       router.replace({
-//         pathname: '/sample-collection',
-//         params: {
-//           centerKey: centerKey || '',
-//           centerName: centerName || '',
-
-//           testKey: testKey || '',
-//           testName: testName || '',
-//           testPrice: testPrice || '',
-
-//           selectedDate: selectedDate || '',
-//           selectedTime: selectedTime || '',
-
-//           // samplePatientName: patient.name,
-//           // samplePatientId: patient.id,
-//           samplePatientName: patient.name,
-// samplePatientId: patient.id,
-// samplePatientMobile: patient.mobile || '',
-// samplePatientEmail: patient.email || '',
-//         },
-//       });
-
-//       return;
-//     }
-
-//     /*
-//      * ============================================
-//      * APPOINTMENT FLOW
-//      * ============================================
-//      */
-//     if (flow === 'appointment') {
-//       setSelectedPatient(patient);
-
-//       router.push({
-//         pathname: './add-patient-details',
-//         params: {
-//           flow: 'appointment',
-//         },
-//       });
-
-//       return;
-//     }
-
-//     /*
-//      * ============================================
-//      * NORMAL FLOW
-//      * ============================================
-//      */
-//     setSelectedPatient(patient);
-
-//     router.back();
-//   };
-
 const handleDone = () => {
   const patient =
     PATIENTS.find((p) => p.id === selectedId) ?? null;
@@ -301,6 +240,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 15,
     paddingBottom: 25,
+    marginTop:20
   },
 
   backButton: {

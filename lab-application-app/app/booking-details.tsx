@@ -26,27 +26,25 @@ export default function BookingDetailsScreen() {
         contentContainerStyle={styles.content}
       >
         <View style={styles.header}>
-          <TouchableOpacity
-  onPress={() => {
-    if (dropdownOpen) {
-      setDropdownOpen(false);
-    } else {
-      router.back();
-    }
-  }}
->
-  <Ionicons
-    name="arrow-back"
-    size={17}
-  />
-</TouchableOpacity>
+  <TouchableOpacity
+    onPress={() => {
+      if (dropdownOpen) {
+        setDropdownOpen(false);
+      } else {
+        router.back();
+      }
+    }}
+  >
+    <Ionicons
+      name="arrow-back"
+      size={20}
+    />
+  </TouchableOpacity>
 
-          <Text style={styles.headerTitle}>
-            Bookings
-          </Text>
-
-          <View style={{ width: 17 }} />
-        </View>
+  <Text style={styles.headerTitle}>
+    Bookings
+  </Text>
+</View>
 
         {/* Patient */}
         <View style={styles.patientCard}>
@@ -239,18 +237,18 @@ const styles = StyleSheet.create({
     paddingBottom: 30,
   },
 
-  header: {
-    height: 40,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom:25
-  },
+header: {
+  height: 40,
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginBottom: 25,
+},
 
-  headerTitle: {
-    fontSize: 15,
-    fontFamily: 'InterMedium',
-  },
+headerTitle: {
+  fontSize: 15,
+  fontFamily: 'InterMedium',
+  marginLeft: 8,
+},
 
   patientCard: {
     backgroundColor: '#FFF',

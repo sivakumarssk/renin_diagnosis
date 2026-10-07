@@ -64,18 +64,20 @@ export default function ManageAvailability() {
         contentContainerStyle={styles.scrollContent}
       >
         {/* Header */}
-        <View style={styles.header}>
-          <TouchableOpacity
-            onPress={() => router.back()}
-            style={styles.backButton}
-          >
-            <Ionicons name="arrow-back" size={13} color="#222" />
-          </TouchableOpacity>
+       <View style={styles.header}>
+  <View style={styles.leftHeader}>
+    <TouchableOpacity
+      onPress={() => router.back()}
+      style={styles.backButton}
+    >
+      <Ionicons name="arrow-back" size={20} color="#222" />
+    </TouchableOpacity>
 
-          <Text style={styles.headerTitle}>Manage Availability</Text>
-
-          <View style={styles.backButton} />
-        </View>
+    <Text style={styles.headerTitle}>
+      Manage Availability
+    </Text>
+  </View>
+</View>
 
         {/* Select Date */}
         <View style={styles.sectionRow}>
@@ -168,26 +170,30 @@ const styles = StyleSheet.create({
     paddingBottom: 24,
   },
   header: {
-    height: 25,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 20,
-  },
-  backButton: {
-    width: 22,
-    height: 22,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  headerTitle: {
-    flex: 1,
-    fontSize: 15,
-    fontFamily: 'InterSemiBold',
-    color: '#222',
-    textAlign: 'center',
-    marginLeft: -22,
-  },
+  height: 25,
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginBottom: 20,
+},
+
+leftHeader: {
+  flexDirection: 'row',
+  alignItems: 'center',
+},
+
+backButton: {
+  width: 22,
+  height: 22,
+  alignItems: 'center',
+  justifyContent: 'center',
+},
+
+headerTitle: {
+  fontSize: 15,
+  fontFamily: 'InterSemiBold',
+  color: '#222',
+  marginLeft: 8,
+},
   sectionRow: {
     flexDirection: 'row',
     alignItems: 'center',

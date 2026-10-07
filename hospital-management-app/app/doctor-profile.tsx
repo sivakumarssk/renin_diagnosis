@@ -20,26 +20,28 @@ export default function DoctorProfile() {
       >
         {/* Header */}
         <View style={styles.header}>
-          <TouchableOpacity
-            onPress={() => router.back()}
-          >
-            <Ionicons
-              name="arrow-back"
-              size={13}
-              color="#222"
-            />
-          </TouchableOpacity>
+  <View style={styles.leftHeader}>
+    <TouchableOpacity onPress={() => router.back()}>
+      <Ionicons
+        name="arrow-back"
+        size={20}
+        color="#222"
+      />
+    </TouchableOpacity>
 
-          <Text style={styles.headerTitle}>
-            Doctor Details
-          </Text>
+    <Text style={styles.headerTitle}>
+      Doctor Details
+    </Text>
+  </View>
 
-          <Ionicons
-            name="ellipsis-vertical"
-            size={13}
-            color="#222"
-          />
-        </View>
+  <TouchableOpacity>
+    <Ionicons
+      name="ellipsis-vertical"
+      size={13}
+      color="#222"
+    />
+  </TouchableOpacity>
+</View>
 
         {/* Doctor */}
         <View style={styles.profileSection}>
@@ -166,19 +168,24 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    height: 25,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 35,
-  },
+  height: 25,
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  marginBottom: 35,
+},
 
-  headerTitle: {
-    fontSize: 15,
-    fontFamily: 'InterSemiBold',
-    color: '#222',
-  },
+leftHeader: {
+  flexDirection: 'row',
+  alignItems: 'center',
+},
 
+headerTitle: {
+  fontSize: 15,
+  fontFamily: 'InterSemiBold',
+  color: '#222',
+  marginLeft: 8,
+},
   profileSection: {
     alignItems: 'center',
     marginBottom: 12,

@@ -54,18 +54,16 @@ export default function SamplesScreen() {
     <SafeAreaView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()}>
-          <Ionicons
-            name="arrow-back"
-            size={18}
-            color="#222"
-          />
-        </TouchableOpacity>
+  <TouchableOpacity onPress={() => router.back()}>
+    <Ionicons
+      name="arrow-back"
+      size={20}
+      color="#222"
+    />
+  </TouchableOpacity>
 
-        <Text style={styles.title}>Samples</Text>
-
-        <View style={{ width: 18 }} />
-      </View>
+  <Text style={styles.title}>Samples</Text>
+</View>
 
       {/* Filters */}
       <View style={styles.filters}>
@@ -164,19 +162,19 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    height: 45,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 14,
-    marginBottom:20
-  },
+  height: 45,
+  flexDirection: 'row',
+  alignItems: 'center',
+  paddingHorizontal: 14,
+  marginBottom: 20,
+},
 
-  title: {
-    fontSize: 15,
-    fontFamily: 'InterMedium',
-    color: '#222',
-  },
+title: {
+  fontSize: 15,
+  fontFamily: 'InterMedium',
+  color: '#222',
+  marginLeft: 8,
+},
 
   filters: {
     flexDirection: 'row',

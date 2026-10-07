@@ -1,4 +1,5 @@
 import React from 'react';
+import { Ionicons } from '@expo/vector-icons';
 import {
   Image,
   View,
@@ -15,7 +16,24 @@ export default function PrescriptionPreview() {
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.container}>
 
-        <Text style={styles.title}>Prescription Preview</Text>
+        <View style={styles.header}>
+  <View style={styles.leftHeader}>
+    <TouchableOpacity
+      style={styles.backButton}
+      onPress={() => router.back()}
+    >
+      <Ionicons
+        name="arrow-back"
+        size={18}
+        color="#1B1F23"
+      />
+    </TouchableOpacity>
+
+    <Text style={styles.title}>Prescription Preview</Text>
+  </View>
+
+  <View style={styles.headerRight} />
+</View>
 
       <View style={styles.doctorCard}>
   <Image
@@ -77,12 +95,34 @@ const styles = StyleSheet.create({
   container: {
     padding: 20,
   },
-  title: {
-    fontFamily: 'InterSemiBold',
-    fontSize: 15,
-    textAlign: 'center',
-    marginBottom: 25,
-  },
+ header: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  marginBottom: 25,
+},
+
+leftHeader: {
+  flexDirection: 'row',
+  alignItems: 'center',
+},
+
+backButton: {
+  width: 22,
+  height: 22,
+  alignItems: 'center',
+  justifyContent: 'center',
+},
+
+title: {
+  fontFamily: 'InterSemiBold',
+  fontSize: 15,
+  marginLeft: 4,
+},
+
+headerRight: {
+  width: 22,
+},
   doctorCard: {
     height:111,
   backgroundColor: '#FFFFFF',

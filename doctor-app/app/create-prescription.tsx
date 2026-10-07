@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Ionicons } from '@expo/vector-icons';
 import {
   View,
   Text,
@@ -21,8 +22,23 @@ export default function CreatePrescription() {
       <ScrollView contentContainerStyle={styles.container}>
 
         <View style={styles.header}>
-          <Text style={styles.title}>Create Prescription</Text>
-        </View>
+  <View style={styles.leftHeader}>
+    <TouchableOpacity
+      style={styles.backButton}
+      onPress={() => router.back()}
+    >
+      <Ionicons
+        name="arrow-back"
+        size={20}
+        color="#1B1F23"
+      />
+    </TouchableOpacity>
+
+    <Text style={styles.title}>Create Prescription</Text>
+  </View>
+
+  <View style={styles.headerRight} />
+</View>
 
         <Text style={styles.label}>Patient</Text>
         <TextInput
@@ -103,13 +119,33 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   header: {
-    alignItems: 'center',
-    marginBottom: 25,
-  },
-  title: {
-    fontFamily: 'InterSemiBold',
-    fontSize: 15,
-  },
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  marginBottom: 25,
+},
+
+leftHeader: {
+  flexDirection: 'row',
+  alignItems: 'center',
+},
+
+backButton: {
+  width: 22,
+  height: 22,
+  alignItems: 'center',
+  justifyContent: 'center',
+},
+
+title: {
+  fontFamily: 'InterSemiBold',
+  fontSize: 15,
+  marginLeft: 4,
+},
+
+headerRight: {
+  width: 22,
+},
   label: {
     fontFamily: 'InterMedium',
     fontSize: 13,

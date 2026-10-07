@@ -47,13 +47,23 @@ export default function ProfileMenuScreen() {
 
       {/* Header */}
       <View style={styles.header}>
-        {/* Back arrow returns to the previous screen (Home) */}
-        <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-          <Ionicons name="arrow-back" size={22} color={COLORS.textDark} />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>Profile</Text>
-        <View style={styles.backButton} />
-      </View>
+  <View style={styles.leftHeader}>
+    <TouchableOpacity
+      onPress={() => router.back()}
+      style={styles.backButton}
+    >
+      <Ionicons
+        name="arrow-back"
+        size={22}
+        color={COLORS.textDark}
+      />
+    </TouchableOpacity>
+
+    <Text style={styles.headerTitle}>Profile</Text>
+  </View>
+
+  <View style={styles.headerRight} />
+</View>
 
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
         {/* Doctor card */}
@@ -68,7 +78,7 @@ export default function ProfileMenuScreen() {
         style={styles.avatar}
       />
 
-      <Text style={styles.doctorName}>Dr. Rahul Shake</Text>
+      <Text style={styles.doctorName}>Dr. Rahul Sharma</Text>
       <Text style={styles.doctorSpecialty}>Cardiologist</Text>
     </View>
 
@@ -123,24 +133,37 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.bg,
   },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 8,
-    paddingVertical: 12,
-  },
-  backButton: {
-    width: 36,
-    height: 36,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  headerTitle: {
-    fontFamily: 'InterSemiBold',
-    fontSize: 16,
-    color: COLORS.textDark,
-  },
+ header: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  paddingHorizontal: 8,
+  paddingVertical: 12,
+},
+
+leftHeader: {
+  flexDirection: 'row',
+  alignItems: 'center',
+},
+
+backButton: {
+  width: 22,
+  height: 22,
+  alignItems: 'center',
+  justifyContent: 'center',
+},
+
+headerTitle: {
+  fontFamily: 'InterSemiBold',
+  fontSize: 16,
+  color: COLORS.textDark,
+  marginLeft: 4,
+},
+
+headerRight: {
+  width: 22,
+},
+ 
   content: {
     paddingHorizontal: 20,
     paddingTop: 8,

@@ -30,21 +30,20 @@ export default function LabProfileScreen() {
   return (
     <SafeAreaView style={styles.container}>
       {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()}>
-          <Ionicons name="arrow-back" size={20} color="#222" />
-        </TouchableOpacity>
+     <View style={styles.header}>
+  <View style={styles.leftHeader}>
+    <TouchableOpacity onPress={() => router.back()}>
+      <Ionicons name="arrow-back" size={20} color="#222" />
+    </TouchableOpacity>
 
-        <Text style={styles.headerTitle}>Lab Profile</Text>
+    <Text style={styles.headerTitle}>Lab Profile</Text>
+  </View>
 
-        <TouchableOpacity
-          style={styles.editRow}
-        //   onPress={() => router.push('/lab-profile/edit')}
-        >
-          <Ionicons name="pencil-outline" size={13} color="#1761A0" />
-          <Text style={styles.editText}>Edit</Text>
-        </TouchableOpacity>
-      </View>
+  <TouchableOpacity style={styles.editRow}>
+    <Ionicons name="pencil-outline" size={13} color="#1761A0" />
+    <Text style={styles.editText}>Edit</Text>
+  </TouchableOpacity>
+</View>
 
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -196,21 +195,26 @@ const styles = StyleSheet.create({
     backgroundColor: '#F2FAF9',
   },
 
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 14,
-    paddingVertical: 12,
-    marginBottom:20
-  },
+ header: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  paddingHorizontal: 14,
+  paddingVertical: 12,
+  marginBottom: 20,
+},
 
-  headerTitle: {
-    fontSize: 16,
-    fontFamily: 'InterSemiBold',
-    color: '#222',
-  },
+leftHeader: {
+  flexDirection: 'row',
+  alignItems: 'center',
+},
 
+headerTitle: {
+  fontSize: 16,
+  fontFamily: 'InterSemiBold',
+  color: '#222',
+  marginLeft: 8,
+},
   editRow: {
     flexDirection: 'row',
     alignItems: 'center',

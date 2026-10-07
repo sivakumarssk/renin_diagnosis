@@ -82,9 +82,24 @@ export default function PatientsScreen() {
       <StatusBar barStyle="dark-content" backgroundColor={COLORS.bg} />
 
       {/* Header */}
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>Patients</Text>
-      </View>
+    <View style={styles.header}>
+  <View style={styles.leftHeader}>
+    <TouchableOpacity
+      style={styles.backButton}
+      onPress={() => router.back()}
+    >
+      <Ionicons
+        name="arrow-back"
+        size={22}
+        color={COLORS.textDark}
+      />
+    </TouchableOpacity>
+
+    <Text style={styles.headerTitle}>Patients</Text>
+  </View>
+
+  <View style={styles.headerRight} />
+</View>
 
       {/* Search bar */}
       <View style={styles.searchWrap}>
@@ -98,35 +113,65 @@ export default function PatientsScreen() {
         />
       </View>
 
-      <FlatList
-        data={filtered}
-        keyExtractor={(item) => item.id}
-        contentContainerStyle={styles.listContent}
-        showsVerticalScrollIndicator={false}
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            style={styles.patientCard}
-            activeOpacity={0.7}
-            onPress={() =>
-              router.push({
-                pathname: '/patient-details',
-                params: { id: item.id, name: item.name },
-              })
-            }
-          >
-<Image
-  source={item.avatar}
-  style={styles.avatar}
+     <FlatList
+  data={filtered}
+  keyExtractor={(item) => item.id}
+  contentContainerStyle={styles.listContent}
+  showsVerticalScrollIndicator={false}
+  renderItem={({ item }) =>
+    item.name === 'Ravi Kumar' ? (
+      <TouchableOpacity
+        style={styles.patientCard}
+        activeOpacity={0.7}
+        onPress={() =>
+          router.push({
+            pathname: '/patient-details',
+            params: {
+              id: item.id,
+              name: item.name,
+            },
+          })
+        }
+      >
+        <Image
+          source={item.avatar}
+          style={styles.avatar}
+        />
+
+        <View style={{ marginLeft: 12, flex: 1 }}>
+          <Text style={styles.patientName}>{item.name}</Text>
+          <Text style={styles.patientLine}>{item.line1}</Text>
+          <Text style={styles.patientLine}>{item.line2}</Text>
+        </View>
+
+        <Feather
+          name="chevron-right"
+          size={18}
+          color={COLORS.textMuted}
+        />
+      </TouchableOpacity>
+    ) : (
+      <View style={styles.patientCard}>
+        <Image
+          source={item.avatar}
+          style={styles.avatar}
+        />
+
+        <View style={{ marginLeft: 12, flex: 1 }}>
+          <Text style={styles.patientName}>{item.name}</Text>
+          <Text style={styles.patientLine}>{item.line1}</Text>
+          <Text style={styles.patientLine}>{item.line2}</Text>
+        </View>
+
+        <Feather
+          name="chevron-right"
+          size={18}
+          color={COLORS.textMuted}
+        />
+      </View>
+    )
+  }
 />
-            <View style={{ marginLeft: 12, flex: 1 }}>
-              <Text style={styles.patientName}>{item.name}</Text>
-              <Text style={styles.patientLine}>{item.line1}</Text>
-              <Text style={styles.patientLine}>{item.line2}</Text>
-            </View>
-            <Feather name="chevron-right" size={18} color={COLORS.textMuted} />
-          </TouchableOpacity>
-        )}
-      />
     </SafeAreaView>
   );
 }
@@ -136,16 +181,36 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.bg,
   },
-  header: {
-    paddingHorizontal: 20,
-    paddingVertical: 12,
-    alignItems: 'center',
-  },
-  headerTitle: {
-    fontFamily: 'InterSemiBold',
-    fontSize: 16,
-    color: COLORS.textDark,
-  },
+ header: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  paddingHorizontal: 20,
+  paddingVertical: 12,
+},
+
+leftHeader: {
+  flexDirection: 'row',
+  alignItems: 'center',
+},
+
+backButton: {
+  width: 22,
+  height: 22,
+  alignItems: 'center',
+  justifyContent: 'center',
+},
+
+headerTitle: {
+  fontFamily: 'InterSemiBold',
+  fontSize: 16,
+  color: COLORS.textDark,
+  marginLeft: 4,
+},
+
+headerRight: {
+  width: 22,
+},
   searchWrap: {
     height:54,
     flexDirection: 'row',

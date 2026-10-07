@@ -60,13 +60,23 @@ export default function Appointments() {
       <ScrollView contentContainerStyle={styles.container}>
         
         <View style={styles.header}>
-          <TouchableOpacity onPress={() => router.back()}>
-            <Ionicons name="arrow-back" size={20} color={COLORS.textDark} />
-          </TouchableOpacity>
+  <View style={styles.leftHeader}>
+    <TouchableOpacity
+      style={styles.backButton}
+      onPress={() => router.back()}
+    >
+      <Ionicons
+        name="arrow-back"
+        size={20}
+        color={COLORS.textDark}
+      />
+    </TouchableOpacity>
 
-          <Text style={styles.title}>Appointments</Text>
-          <View style={{ width: 20 }} />
-        </View>
+    <Text style={styles.title}>Appointments</Text>
+  </View>
+
+  <View style={styles.headerRight} />
+</View>
 
         <View style={styles.tabs}>
           <Text style={[styles.tab, styles.activeTab]}>Upcoming</Text>
@@ -116,16 +126,35 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 25,
-  },
-  title: {
-    fontFamily: 'InterSemiBold',
-    fontSize: 16,
-    color: COLORS.textDark,
-  },
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  marginBottom: 25,
+},
+
+leftHeader: {
+  flexDirection: 'row',
+  alignItems: 'center',
+},
+
+backButton: {
+  width: 22,
+  height: 22,
+  alignItems: 'center',
+  justifyContent: 'center',
+},
+
+title: {
+  fontFamily: 'InterSemiBold',
+  fontSize: 16,
+  color: COLORS.textDark,
+  marginLeft: 4,
+},
+
+headerRight: {
+  width: 22,
+},
+ 
   tabs: {
     flexDirection: 'row',
     justifyContent: 'space-between',

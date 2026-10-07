@@ -17,13 +17,23 @@ export default function AppointmentDetails() {
       <ScrollView contentContainerStyle={styles.container}>
 
         <View style={styles.header}>
-          <TouchableOpacity onPress={() => router.back()}>
-            <Ionicons name="arrow-back" size={20} color="#1B1F23" />
-          </TouchableOpacity>
+  <View style={styles.leftHeader}>
+    <TouchableOpacity
+      style={styles.backButton}
+      onPress={() => router.back()}
+    >
+      <Ionicons
+        name="arrow-back"
+        size={20}
+        color="#1B1F23"
+      />
+    </TouchableOpacity>
 
-          <Text style={styles.title}>Appointments Details</Text>
-          <View style={{ width: 20 }} />
-        </View>
+    <Text style={styles.title}>Appointments Details</Text>
+  </View>
+
+  <View style={styles.headerRight} />
+</View>
 
         {/* Patient Card */}
         <View style={styles.patientCard}>
@@ -88,15 +98,33 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 25,
-  },
-  title: {
-    fontFamily: 'InterSemiBold',
-    fontSize: 14,
-  },
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  marginBottom: 25,
+},
+
+leftHeader: {
+  flexDirection: 'row',
+  alignItems: 'center',
+},
+
+backButton: {
+  width: 22,
+  height: 22,
+  alignItems: 'center',
+  justifyContent: 'center',
+},
+
+title: {
+  fontFamily: 'InterSemiBold',
+  fontSize: 14,
+  marginLeft: 4,
+},
+
+headerRight: {
+  width: 22,
+},
   patientCard: {
     height:111,
     backgroundColor: '#FFFFFF',
